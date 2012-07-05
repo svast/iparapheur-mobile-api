@@ -1,0 +1,27 @@
+\section{OpenOffice}
+\subsection{OpenOffice sur un port différent}
+
+Lorsque l'on choisit un port différent du port par défaut (8100) alfresco n'honore pas cette configuration.
+Il faut ajouter dans \verb|alfresco-global.properties| 
+
+\begin{minted}[frame=single,fontsize=\footnotesize]{properties}
+ooo.port={Le nouveau port}	
+\end{minted}
+
+Il faut modifier la définition du bean suviante:
+\begin{minted}[frame=single,fontsize=\footnotesize]{bash}
+vim ./tomcat/webapps/alfresco/WEB-INF/classes/alfresco/subsystems/OOoDirect/default/openoffice-transform-context.xml
+\end{minted}
+\begin{minted}[firstnumber=58,frame=single,linenos,fontsize=\footnotesize]{xml}
+<bean id="openOfficeConnection" class="net.sf.jooreports.openoffice.connection.SocketOpenOfficeConnection"/>
+\end{minted}
+
+par
+
+\begin{minted}[firstnumber=58,frame=single,linenos,fontsize=\footnotesize]{xml}
+<bean id="openOfficeConnection" class="net.sf.jooreports.openoffice.connection.SocketOpenOfficeConnection">
+<constructor-arg>
+<value>${ooo.port}</value>
+</constructor-arg>
+</bean>
+\end{minted}

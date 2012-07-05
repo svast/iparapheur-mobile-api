@@ -1,0 +1,80 @@
+\section{LDAP-AD}
+\subsection{Mise en place de la chaine d'autentification}
+Modification de la chaine d'authentification dans \verb|alfresco-global.properties|:
+\begin{codesnippet}
+\inputminted[frame=single,fontsize=\footnotesize]{properties}{extraits/authchain_autocreate.properties}
+
+\caption{Chaine d'authentification LDAP-ad}
+\label{conf:ldap-ad-auth-chain}
+\end{codesnippet}
+
+\subsection{Copie des fichiers de configuration}
+Mise en place des différents fichiers que l'on va modifier dans la suite de la procédure:
+
+\begin{codesnippet}
+%\begin{minted}[frame=single,linenos,fontsize=\footnotesize]{bash}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{bash}{extraits/enable_ldap1.sh}
+\caption{Mise en place des fichiers de configuration}
+\label{conf:ldap-ad-files}
+\end{codesnippet}
+
+\subsection{Configuration}
+Propriétés qu'il faut modifier dans le fichier : 
+\begin{minted}[frame=single,linenos,fontsize=\footnotesize]{bash}
+vim /opt/iParapheur/tomcat/shared/classes/alfresco/extension/subsystems/\
+Authentication/ldap-ad/ldap1/ldap-ad.properties
+\end{minted}
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{properties}{extraits/main_keys.properties}
+\caption{Principales clefs de configuration à modifier}
+\label{conf:ldap-ad-main}
+\end{codesnippet}
+
+\begin{itemize} 
+\item ldap.authentication.allowGuestLogin — Activer / désactiver l'accès invité d'Alfresco
+
+\item ldap.authentication.userNameFormat — Format du nom utilisateur (\%s = nom utilisateur dans alfresco) suivit d'une arobase et du domaine (UPN).
+
+\item ldap.authentication.java.naming.provider.url — une url LDAP contenant le nom d'hôte et le port (généralement 389) de l'active directory
+
+\item ldap.authentication.defaultAdministratorUserNames — Une liste d'ID utilisateur qui doivent posséder les droits administrateur dans alfresco.
+
+\item ldap.synchronization.java.naming.security.principal — Un UPN\footnote{Universal Principal Name} pour un compte qui à le droit d'accès à tous les utilisateurs et les groupes qui doivent être importés. Les mots de passe restent sur l'active directory et ne transitent pas sur le réseau.
+
+\item ldap.synchronization.java.naming.security.credentials — Le mot de passe pour le compte défini au précédement.
+
+\item ldap.synchronization.groupSearchBase — Le Distinguished Name (DN) de l'Organizational Unit (OU) sous lequel les groupes à synchroniser se trouvent.
+% which security groups can be found. You can determine the appropriate DN by browsing to security groups in an LDAP browser.
+\item ldap.synchronization.userSearchBase —  Le Distinguished Name (DN) de l'Organizational Unit (OU) sous lequel les utilisateurs à synchroniser se trouvent.
+%The distinguished name (DN) of the Organizational Unit (OU) below which user accounts can be found. You can determine the appropriate DN by browsing to user accounts in an LDAP browser.
+\end{itemize}
+
+\subsection{Utilisation d'un groupe de sécurité}
+Dans le cas ou l'on souhaite utiliser un groupe de sécurité pour définir les utilisateurs il faut modifier \verb|personQuery| et \verb|groupQuery|, ainsi que leur versions différentielles.
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{properties}{extraits/person_queries_CN.properties}
+\caption{Requêtes LDAP de sélection des utilisateurs appartenant à un groupe de sécurité.}
+\label{conf:ad-person-queries}
+\end{codesnippet}
+
+Version récursive du memberOf afin d'ajouter des groupes de sécurité comme membre du groupe iParapheur.
+\begin{codesnippet}
+	\begin{minted}[frame=single, fontsize=\footnotesize]{properties}
+		memberOf:1.2.840.113556.1.4.1941:=cn\=iparapheur,ou\=Security\ Groups,dc\=adullact,dc\=win 
+	\end{minted}
+\end{codesnippet}
+
+Dans le cas d'un groupe de sécurité on positionnera \verb|userBase| et \verb|groupBase| à la racine du ldap, dans notre cas \verb|dc=adullact,dc=win|.
+%
+\begin{codesnippet}
+\begin{minted}[frame=single, fontsize=\footnotesize]{properties}
+ldap.synchronization.groupSearchBase=dc=adullact,dc=win
+ldap.synchronization.userSearchBase=dc=adullact,dc=win
+\end{minted}
+\end{codesnippet}
+
+
+
+Désactivation de la synchronisation des groupes\footnote{En effet cette capacité à importer des groupes n'est que rarement utilisée.}.
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{properties}{extraits/group_queries_no_sync.properties}

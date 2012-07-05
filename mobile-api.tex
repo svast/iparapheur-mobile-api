@@ -1,0 +1,177 @@
+% rubber: setlist arguments --shell-escape
+
+\documentclass[a4paper]{article}
+%, twoside
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+%%% Use verdana :X
+% winfonts hack ... don't wanna do it.
+%\fontfamily{verdana}\selectfont
+
+
+%\usepackage[parfill]{parskip}
+%\usepackage{fourier}
+\usepackage{algorithmic, algorithm}
+\floatname{algorithm}{Algorithme} 
+%%% for \url
+\usepackage{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{hyperref}% http://ctan.org/pkg/hyperref
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=black!70!black
+}% define a command to input emails
+\newcommand{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}}}
+
+\usepackage{setspace}
+\usepackage[head=20pt,headsep=1cm,margin=1.5cm,driver=xetex,includeheadfoot]{geometry}
+%\addtolength{\topmargin}{0.5cm}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{pgf}
+%\usepackage{wrapfig}
+\usepackage{amsmath}
+\usepackage{fancyvrb}
+\usepackage{color}
+
+\usepackage{colortbl}
+\usepackage{minted}
+\usemintedstyle{autumn}
+%\usepackage{tabularx}
+%\pagestyle{fancy}
+%\usepackage[varg]{pxfonts} 
+\setcounter{secnumdepth}{4}% 
+\setcounter{tocdepth}{4}%
+
+
+%%%%% pour \bigsqcap(sans avoir à importer tout pxfonts %%%%%
+\DeclareSymbolFont{largesymbolsA}{U}{pxexa}{m}{n}
+\SetSymbolFont{largesymbolsA}{bold}{U}{pxexa}{bx}{n}
+\DeclareFontSubstitution{U}{pxexa}{m}{n}
+\def\re@DeclareMathSymbol#1#2#3#4{%
+    \let#1=\undefined
+    \DeclareMathSymbol{#1}{#2}{#3}{#4}}
+
+\re@DeclareMathSymbol{\bigsqcap}{\mathop}{largesymbolsA}{6}
+%%%%% \bigsqcap %%%%%
+
+%%%%% definis le RETURN qui n'est pas définis dans algorithm
+\def\RETURN{\STATE \textbf{return}~}
+%%%%
+
+%%%% defs 
+%\renewcommand{\chaptermark}[1]{\markright{\thechapter\ #1}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+%\fancyhead[R]{\thepage}
+%\fancyhead[C]{\scshape\rightmark}
+%\fancyhead[L]{}
+%\fancyfoot[C]{}
+\renewcommand{\headrulewidth}{0pt}
+%%%%
+
+
+%%%% Macros persos
+\newenvironment{divs}[1][10cm]
+  {\begin{minipage}{#1}
+   \centering}
+  {\end{minipage}}
+
+\newenvironment{doublespacediv}[1][10cm]
+  {\begin{divs}[#1]
+   \begin{doublespace}}
+  {\end{doublespace}
+   \end{divs}}
+
+
+\newenvironment{topsty}[1][10cm]
+  {\begin{divs}[#1]
+   \begin{large}}
+  {\end{large}
+   \end{divs}}
+
+%\newcommand{\memtitle}[1][]{
+%  \begin{doublespacediv}[#1]
+%    \Huge \textbf
+%    { #2}
+%    
+%   
+%    \normalsize
+%  \end{doublespacediv}
+%}
+
+% minted stuff
+\renewcommand{\theFancyVerbLine}{\sffamily
+\textcolor[rgb]{0.5,0.5,1.0}{\scriptsize
+\oldstylenums{\arabic{FancyVerbLine}}}}
+
+%\newcommand{\inputmintedprops}[1]{
+%	\inputminted[frame=single,linenos,fontsize=\footnotesize]{properties}{#1}
+%}	
+
+%\newcommand{\inputmintedscript}[1]{
+%	\inputminted[frame=single,linenos,fontsize=\footnotesize]{bash}{#1}
+%}
+
+%%%%
+
+\floatstyle{plain}
+\newfloat{codesnippet}{thp}{lop}
+\floatname{codesnippet}{Extrait}
+
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.8}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\floatpagefraction}{0.75}
+
+
+\newtheorem{definition}{Définition} % les définitions et les théorèmes sont
+\newtheorem{theorem}{Théorème}[section]    % numérotés par section
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}{Exemple}
+
+
+
+%%% entêtes et pieds de pages
+\pagestyle{fancy}
+\renewcommand\headrulewidth{0.4pt}
+\fancyhead{}c
+\fancyhead[C]{
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	\cellcolor[gray]{.9}Projet & \pgfimage[height=7mm]{images/parapheur} & \cellcolor[gray]{.9}Rédacteur & Emmanuel Peralta \\
+	\cellcolor[gray]{.9}       & \href{http://paraphelec.adullact.net}{http://paraphelec.adullact.net} &\cellcolor[gray]{.9} & \email{e.peralta@adullact-projet.coop} \\
+	\hline
+\end{tabular}
+\vspace{1mm}
+}
+%\fancyhead[R]{Académie de Poitiers}
+
+\renewcommand\footrulewidth{0.4pt}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
+\fancyfoot[L]{\textbf{API Mobile *DRAFT*}\\ 
+\today}
+
+\begin{document}
+	\input{chapitres/cover.tex}
+	\clearpage
+	
+	\cleardoublepage
+	\tableofcontents
+	\clearpage
+	\listof{codesnippet}{Table des extraits}
+	\clearpage
+	%\cleardoublepage
+	\input{chapitres/introduction.tex}
+	\clearpage
+	\cleardoublepage
+	\input{chapitres/api.tex}
+	\clearpage
+	\cleardoublepage
+	\input{chapitres/annexes.tex}
+\end{document}
