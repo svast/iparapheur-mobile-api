@@ -1,2 +1,7 @@
+mobile-api.pdf
+*.out
+*.toc
+*.log
+*.aux
 *.lop
 .DS_Store
