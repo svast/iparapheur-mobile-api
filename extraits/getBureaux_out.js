@@ -3,7 +3,7 @@
         "bureaux": [
             {
                 "en_retard": 0, 
-                "a_traiter": 2, 
+                "a_traiter": 21, 
                 "description": "", 
                 "image": "", 
                 "collectivite": "", 
@@ -11,8 +11,8 @@
                 "name": "DRH"
             }, 
             {
-                "en_retard": 0, 
-                "a_traiter": 41, 
+                "en_retard": 1, 
+                "a_traiter": 40, 
                 "description": "", 
                 "image": "", 
                 "collectivite": "", 
@@ -21,7 +21,7 @@
             }, 
             {
                 "en_retard": 0, 
-                "a_traiter": 13, 
+                "a_traiter": 22, 
                 "description": "", 
                 "image": "", 
                 "collectivite": "", 
@@ -39,7 +39,7 @@
             }, 
             {
                 "en_retard": 0, 
-                "a_traiter": 11, 
+                "a_traiter": 6, 
                 "description": "", 
                 "image": "", 
                 "collectivite": "", 
@@ -47,8 +47,8 @@
                 "name": "Maire"
             }, 
             {
-                "en_retard": 0, 
-                "a_traiter": 656, 
+                "en_retard": 2, 
+                "a_traiter": 655, 
                 "description": "", 
                 "image": "", 
                 "collectivite": "", 

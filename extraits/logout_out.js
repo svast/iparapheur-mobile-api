@@ -7,6 +7,6 @@
     "callstack": [], 
     "exception": "", 
     "server": "Community v3.4.0 (c 3335) schema 4\u00a0113", 
-    "time": "15 juin 2012 11:43:04", 
-    "message": "Deleted Ticket TICKET_3aa02c062394ad1671f701912a251ffbb2e9fec9"
+    "time": "24 juil. 2012 17:28:17", 
+    "message": "Deleted Ticket TICKET_00121dc5a73e907aacf2a510b0ed00b2f53a9efb"
 }

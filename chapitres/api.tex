@@ -45,7 +45,7 @@ Cet appel ne nécessite aucune authentification (c'est d'ailleurs le seul). Une 
 \verb|/parapheur/api/getBureaux|
 }\\
 
-Retourne la liste des bureaux dont l'utilisateur passé en paramètre est propriétaire. (voir extraits \ref{snip:getBureaux_in} et \ref{snip:getBureaux_out}) 
+Retourne la liste des bureaux dont l'utilisateur passé en paramètre est propriétaire. (voir extraits~\ref{snip:getBureaux_in} et~\ref{snip:getBureaux_out}) 
 
 \begin{codesnippet}
 \inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/getBureaux_in.js}
@@ -60,7 +60,7 @@ Retourne la liste des bureaux dont l'utilisateur passé en paramètre est propri
 
 \paragraph{Entêtes de dossiers paginées}
 
-Retourne une liste d'entêtes de dossiers issus de la bannette ``a-traiter''. (voir extraits \ref{snip:getDossiersHeaders_in} et \ref{snip:getDossiersHeaders_out}).
+Retourne une liste d'entêtes de dossiers issus de la bannette ``a-traiter''. (voir extraits~\ref{snip:getDossiersHeaders_in} et~\ref{snip:getDossiersHeaders_out}).
 
 Lorsque l'on limite le nombre ($n$) de résultats \verb|getDossiersHeaders| retourne au plus $n + 1$ résultats afin d'indiquer une page suivante potentielle. Si \verb|pageSize| vaut 0 alors tout les résultats sont retournés.
 
@@ -71,7 +71,7 @@ Lorsque l'on limite le nombre ($n$) de résultats \verb|getDossiersHeaders| reto
 \end{codesnippet}
 
 \paragraph{Filtres}
-Dans la requête des filtres il est possible d'utiliser les variables suivantes\ref{table:filterable_fields} le type de la donnée est donné à titre indicatif car représenté sous forme de \verb|STRING| dans l'élément filtres de la requête.
+Dans la requête des filtres il est possible d'utiliser les variables suivantes~\ref{table:filterable_fields} le type de la donnée est donné à titre indicatif car représenté sous forme de \verb|STRING| dans l'élément filtres de la requête.
 
 
 \begin{figure}[H]
@@ -149,8 +149,8 @@ Il est possible de faire des filtres complexes contenant des clauses ``OR'' et `
 
 \paragraph{Spécification du Parent virtuel}
 
-Par défaut les filtres retournent des résultats sur les dossiers provenant de la corbeille "a-traiter". Il est désormais possible de
-choisir la corbeille (y compris virtuelle). Le tableau suivant\ref{table:parent_values} récapitule les différentes corbeilles possibles.
+Par défaut les filtres retournent des résultats sur les dossiers provenant de la corbeille ``a-traiter''. Il est désormais possible de
+choisir la corbeille (y compris virtuelle). Le tableau suivant~\ref{table:parent_values} récapitule les différentes corbeilles possibles.
 
 \begin{figure}
 \begin{center}
@@ -177,13 +177,20 @@ choisir la corbeille (y compris virtuelle). Le tableau suivant\ref{table:parent_
 \end{figure}
 
 
+\subsubsection{getCircuit}
+\shadowbox{\verb|/parapheur/api/getCircuit|
+}\\
+
+
+Retourne le circuit associé au dossierRef passé en paramètre (voir extraits~\ref{snip:getCircuit_in} et~\ref{snip:getCircuit_out}) 
+
 
 
 \subsubsection{getTypologie}
 \shadowbox{\verb|/parapheur/api/getTypologie|
 }\\
 
-Retourne la typologie accessible au bureau passé en paramètre (voir extrait \ref{snip:getTypologie_out}).
+Retourne la typologie accessible au bureau passé en paramètre (voir extrait~\ref{snip:getTypologie_out}).
 
 \begin{codesnippet}
 \inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/getTypologie_in.js}
@@ -218,7 +225,7 @@ Le champ \verb|lectureObligatoire| signifie que la lecture du document principal
 
 Le champ \verb|signatureNumeriqueObligatoire| signifie que la signature électronique est obligatoire (pas de signature "papier")
 
-La partie documents de la réponse à \verb|getDossier| contient un champ \verb|downloadUrl| (pour avoir le chemin complet on effectue la concaténation du préfixe et de l'url\footnote{Dans le cas présent ça donne: http://mon.parapheur.fr/alfresco/service/api/node/workspace/SpacesStore/1b4b7715-c053-4cea-bed7-5be34373d565/content?alf\_ticket=TICKET\_6a04816348fe8d9aab05ec7a43cfed22bdcdedd2}) un champ \verb|size| en octets qui représente la taille du document éventuellement un champ \verb|visuelPdfUrl| qui renvoie une version pdf du document (voir extrait \ref{snip:getDossier_out}). Un dossier contient un document principal (le premier de la liste) et éventuellement des annexes.
+La partie documents de la réponse à \verb|getDossier| contient un champ \verb|downloadUrl| (pour avoir le chemin complet on effectue la concaténation du préfixe et de l'url\footnote{Dans le cas présent ça donne: http://mon.parapheur.fr/alfresco/service/api/node/workspace/SpacesStore/1b4b7715-c053-4cea-bed7-5be34373d565/content?alf\_ticket=TICKET\_6a04816348fe8d9aab05ec7a43cfed22bdcdedd2}) un champ \verb|size| en octets qui représente la taille du document éventuellement un champ \verb|visuelPdfUrl| qui renvoie une version pdf du document (voir extrait~\ref{snip:getDossier_out}). Un dossier contient un document principal (le premier de la liste) et éventuellement des annexes.
 
 \begin{codesnippet}
 \inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/getDossier_in.js}
