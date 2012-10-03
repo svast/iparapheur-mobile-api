@@ -6,6 +6,7 @@
         "sousType": "FAST", 
         "dossierRef": "workspace://SpacesStore/186cfb2e-1d8e-460c-bd43-41261e38d809", 
         "dateCreation": "2012-01-25T11:36:43.748+01:00", 
+        "statutMetier": "PretTdT", 
         "documents": [
             {
                 "downloadUrl": "/api/node/workspace/SpacesStore/1b4b7715-c053-4cea-bed7-5be34373d565/content", 

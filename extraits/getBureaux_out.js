@@ -2,26 +2,17 @@
     "data": {
         "bureaux": [
             {
-                "en_retard": 0, 
-                "a_traiter": 21, 
-                "description": "", 
-                "image": "", 
-                "collectivite": "", 
-                "nodeRef": "workspace://SpacesStore/7048722c-d5ec-47bc-a17a-58392d12749b", 
-                "name": "DRH"
-            }, 
-            {
                 "en_retard": 1, 
-                "a_traiter": 40, 
+                "a_traiter": 30, 
                 "description": "", 
                 "image": "", 
                 "collectivite": "", 
                 "nodeRef": "workspace://SpacesStore/a379b8dc-7eca-42c8-961a-826979255eba", 
-                "name": "Developpeur"
+                "name": "Agent"
             }, 
             {
                 "en_retard": 0, 
-                "a_traiter": 22, 
+                "a_traiter": 2, 
                 "description": "", 
                 "image": "", 
                 "collectivite": "", 
@@ -39,7 +30,7 @@
             }, 
             {
                 "en_retard": 0, 
-                "a_traiter": 6, 
+                "a_traiter": 15, 
                 "description": "", 
                 "image": "", 
                 "collectivite": "", 
@@ -47,7 +38,7 @@
                 "name": "Maire"
             }, 
             {
-                "en_retard": 2, 
+                "en_retard": 0, 
                 "a_traiter": 655, 
                 "description": "", 
                 "image": "", 

@@ -12,42 +12,42 @@
                 "actionDemandee": "TDT"
             }, 
             {
-                "dateCreation": "2012-02-02T10:04:30.125+01:00", 
-                "dossierRef": "workspace://SpacesStore/ae085edf-3261-4fc3-b812-355cf34d1a25", 
+                "dateCreation": "2012-02-02T10:04:39.588+01:00", 
+                "dossierRef": "workspace://SpacesStore/925b929f-21dc-4e0a-8852-5af021c2810d", 
                 "sousType": "depense", 
-                "titre": "Test_XML_XADES_19_9", 
+                "titre": "Test_XML_XADES_19_20", 
                 "type": "Helios", 
                 "actionDemandee": "TDT"
             }, 
             {
-                "dateCreation": "2012-02-02T10:04:31.346+01:00", 
-                "dossierRef": "workspace://SpacesStore/9f32abb4-7f75-4be0-b705-bf2dfcaf6f2d", 
+                "dateCreation": "2012-02-02T10:04:40.638+01:00", 
+                "dossierRef": "workspace://SpacesStore/7c9c1e76-ddee-455c-b095-1d30737cd3d8", 
                 "sousType": "depense", 
-                "titre": "Test_XML_XADES_19_10", 
+                "titre": "Test_XML_XADES_19_21", 
                 "type": "Helios", 
                 "actionDemandee": "TDT"
             }, 
             {
-                "dateCreation": "2012-02-02T10:04:37.053+01:00", 
-                "dossierRef": "workspace://SpacesStore/2bfdacfd-d409-4650-b8ac-c24466f6cc01", 
+                "dateCreation": "2012-02-02T10:04:41.478+01:00", 
+                "dossierRef": "workspace://SpacesStore/49e0dbf4-176d-4893-b0e7-827484eb4089", 
                 "sousType": "depense", 
-                "titre": "Test_XML_XADES_19_17", 
+                "titre": "Test_XML_XADES_19_22", 
                 "type": "Helios", 
                 "actionDemandee": "TDT"
             }, 
             {
-                "dateCreation": "2012-02-02T10:04:37.845+01:00", 
-                "dossierRef": "workspace://SpacesStore/298ac4fe-c728-422b-a4c4-3df5e443f214", 
+                "dateCreation": "2012-02-02T10:04:42.313+01:00", 
+                "dossierRef": "workspace://SpacesStore/a13bfe6d-f827-42b5-8d1c-4ab5af9f84dc", 
                 "sousType": "depense", 
-                "titre": "Test_XML_XADES_19_18", 
+                "titre": "Test_XML_XADES_19_23", 
                 "type": "Helios", 
                 "actionDemandee": "TDT"
             }, 
             {
-                "dateCreation": "2012-02-02T10:04:38.733+01:00", 
-                "dossierRef": "workspace://SpacesStore/f2258aa9-1621-4b90-a3cc-112641d49b22", 
+                "dateCreation": "2012-02-02T10:04:43.802+01:00", 
+                "dossierRef": "workspace://SpacesStore/e7f8e6ad-48d2-4209-b54d-a8bf8b595f63", 
                 "sousType": "depense", 
-                "titre": "Test_XML_XADES_19_19", 
+                "titre": "Test_XML_XADES_19_25", 
                 "type": "Helios", 
                 "actionDemandee": "TDT"
             }
