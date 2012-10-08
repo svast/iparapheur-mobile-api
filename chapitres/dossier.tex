@@ -5,19 +5,82 @@
 
 Crée un dossier vide avec un nom temporaire sous forme d'uuid
 
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/createDossier_in.js}
+\caption{createDossier requête entrante}
+\label{snip:getDossier_in}
+\end{codesnippet}
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/createDossier_out.js}
+\caption{createDossier requête sortante}
+\label{snip:getDossier_out}
+\end{codesnippet}
+
+
 \subsection{setCircuit}
 \shadowbox{\verb|/parapheur/api/setCircuit|
 }\\
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/setCircuit_in.js}
+\caption{setCircuit requête entrante}
+\label{snip:setCircuit_in}
+\end{codesnippet}
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/setCircuit_out.js}
+\caption{setCircuit requête sortante}
+\label{snip:setCircuit_out}
+\end{codesnippet}
+
+
 
 \subsection{setDossierProperties}
 \shadowbox{\verb|/parapheur/api/setDossierProperties|
 }\\
 
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/setDossierProperties_in.js}
+\caption{setCircuit requête entrante}
+\label{snip:setDossierProperties_in}
+\end{codesnippet}
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/setDossierProperties_out.js}
+\caption{setCircuit requête sortante}
+\label{snip:setDossierProperties_out}
+\end{codesnippet}
 
 \subsection{addDocument}
 \shadowbox{\verb|/parapheur/api/addDocument|
 }\\
 
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/addDocument_in.js}
+\caption{addDocument requête entrante}
+\label{snip:addDocument_in}
+\end{codesnippet}
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/addDocument_out.js}
+\caption{addDocument requête sortante}
+\label{snip:addDocument_out}
+\end{codesnippet}
+
+
+
 \subsection{finalizeCreateDossier}
 \shadowbox{\verb|/parapheur/api/finalizeCreateDossier|
 }\\
+
+
+var nodes = search.luceneSearch('@name:"fred1"');
+for each(var node in nodes) {
+
+    var etape = iparapheur.getCurrentEtapeCircuit(node.nodeRef);
+    logger.log(etape.getParapheurName());
+  
+}
+
+logger.log('ok');

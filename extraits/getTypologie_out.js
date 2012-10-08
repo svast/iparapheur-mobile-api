@@ -1,27 +1,17 @@
 {
     "data": {
         "typology": {
-            "Helios": [
-                "recette", 
-                "depense"
+            "DSI Achat": [
+                "Service fait", 
+                "Demande de devis", 
+                "Notification de rejet"
             ], 
-            "CMSAllInONe": [
-                "test"
-            ], 
-            "Demandes internes": [
-                "Commande de mat\u00e9riel"
-            ], 
-            "Test": [
-                "SignatureScan\u00e9e", 
-                "lorraine"
+            "Finances": [
+                "D\u00e9penses"
             ], 
             "Actes": [
-                "Arrete du personnel", 
-                "arrete reglementaire", 
-                "deliberation"
-            ], 
-            "Helios Fast": [
-                "FAST"
+                "Arrete individuel", 
+                "Arrete regelementaire"
             ]
         }
     }
