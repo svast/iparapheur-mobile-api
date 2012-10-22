@@ -1,10 +1,9 @@
 {
-    "dossier": "workspace://SpacesStore/b2a97211-39e6-4e1a-a275-386179f1a607", 
+    "dossier": "workspace://SpacesStore/66f61e5d-606e-4e85-bfed-35cd5b1c348c", 
     "annotations": [
         {
-            "text": "coucou", 
-            "type": "text", 
-            "page": 0, 
+            "text": "test", 
+            "uuid": null, 
             "rect": {
                 "topLeft": {
                     "y": 0, 
@@ -14,7 +13,8 @@
                     "y": 100, 
                     "x": 100
                 }
-            }
+            }, 
+            "page": 0
         }
     ]
 }

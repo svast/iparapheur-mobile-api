@@ -29,7 +29,7 @@
 \newcommand{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}}}
 
 \usepackage{setspace}
-\usepackage[head=20pt,headsep=1cm,margin=1.5cm,driver=xetex,includeheadfoot]{geometry}
+\usepackage[head=20pt,headsep=1cm,margin=1.5cm,includeheadfoot]{geometry}
 %\addtolength{\topmargin}{0.5cm}
 \usepackage{fancyhdr}
 \usepackage{fancybox}
@@ -45,7 +45,7 @@
 %\usepackage{tabularx}
 %\pagestyle{fancy}
 %\usepackage[varg]{pxfonts} 
-\setcounter{secnumdepth}{4}% 
+%\setcounter{secnumdepth}{4}% 
 \setcounter{tocdepth}{4}%
 
 
@@ -120,6 +120,7 @@
 %%%%
 
 \floatstyle{plain}
+
 \newfloat{codesnippet}{thp}{lop}
 \floatname{codesnippet}{Extrait}
 
@@ -170,10 +171,6 @@
 	\clearpage
 	%\cleardoublepage
 	\input{chapitres/api.tex}
-	\clearpage
-	\input{chapitres/dossier.tex}
-	\clearpage
-	\input{chapitres/annotations.tex}
 	\clearpage
 	%\cleardoublepage
 	\input{chapitres/annexes.tex}

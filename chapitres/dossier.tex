@@ -1,9 +1,140 @@
-\section{Dossier}
-\subsection{beginCreateDossier}
-\shadowbox{\verb|/parapheur/api/beginCreateDossier|
+\section{Dossiers}
+
+\subsection{getDossier}
+\shadowbox{\verb|/parapheur/api/getDossier|
 }\\
 
-Crée un dossier vide avec un nom temporaire sous forme d'uuid
+
+Le flag \verb|recuperable| indique si le dernier acteur qui a effectué une action de validation récupérable (visa) peut récupérer le dossier.
+
+Le champ \verb|nomTdt| correspond au nom du tiers de télétransmission renseigné dans le sous type associé au dossier (FAST, S2LOW ou SRCI).
+
+Le champ \verb|protocoleTdt| correspond au protocole du tiers de télétransmission sélectionné pour ce dossier (HELIOS ou ACTES).
+
+Le champ \verb|type| correspond au type métier du dossier.
+
+Le champ \verb|sousType| correspond au sous type métier du dossier.
+
+Le champ \verb|lectureObligatoire| signifie que la lecture du document principal est obligatoire à l'étape de signature.
+
+Le champ \verb|signatureNumeriqueObligatoire| signifie que la signature électronique est obligatoire (pas de signature "papier")
+
+Le champ \verb|actions| donne les possibilités d'actions pour l'utilisateur
+
+Le champ \verb|metadonnees| renseigne les métadonnées du circuit et leurs valeurs pour le dossier actuel.
+
+La partie documents de la réponse à \verb|getDossier| contient un champ \verb|downloadUrl| (pour avoir le chemin complet on effectue la concaténation du préfixe et de l'url\footnote{Dans le cas présent ça donne: http://mon.parapheur.fr/alfresco/service/api/node/workspace/SpacesStore/1b4b7715-c053-4cea-bed7-5be34373d565/content?alf\_ticket=TICKET\_6a04816348fe8d9aab05ec7a43cfed22bdcdedd2}) un champ \verb|size| en octets qui représente la taille du document éventuellement un champ \verb|visuelPdfUrl| qui renvoie une version pdf du document (voir extrait~\ref{snip:getDossier_out}). Un dossier contient un document principal (le premier de la liste) et éventuellement des annexes.
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/getDossier_in.js}
+\caption{getDossier in}
+\label{snip:getDossier_out}
+\end{codesnippet}
+
+
+\subsection{getImages}
+\shadowbox{\verb|/parapheur/api/getImages|
+}\\
+
+Permet de récupérer le visuel du document principal sous forme de liste d'images (voir extrait~\ref{snip:getImages_out}).
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/getImages_in.js}
+\caption{getImages in}
+\label{snip:getImages_in}
+\end{codesnippet}
+
+
+\subsection{getMetadonnees}
+\shadowbox{\verb|/parapheur/api/getMetadonnees|
+}\\
+
+Permet de récupérer les métadonnées relatives aux type et sous-typé donnés (voir extrait~\ref{snip:getMetadonnees_out}).
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/getMetadonnees_in.js}
+\caption{getMetadonnees in}
+\label{snip:getMetadonnees_in}
+\end{codesnippet}
+
+
+\subsection{deleteNodes}
+\shadowbox{\verb|/parapheur/api/deleteNodes|
+}\\
+
+Supprime les noeuds, fournis sous forme de liste.
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/deleteNodes_in.js}
+\caption{deleteNodes in}
+\label{snip:deleteNodes_in}
+\end{codesnippet}
+
+
+\subsection{Actions}
+
+\subsubsection{visa}
+\shadowbox{\verb|/parapheur/api/visa|
+}\\
+
+Permet de viser un dossier.
+Ne retourne rien si ce n'est des codes d'erreur Http lors d'un échec notamment 403 (Forbidden) ou 500 (Internal Server Error).
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/visa_in.js}
+\caption{visa in}
+\label{snip:visa_in}
+\end{codesnippet}
+
+
+\subsubsection{reject}
+\shadowbox{\verb|/parapheur/api/reject|
+}\\
+
+Rejet d'un dossier.
+Ne retourne rien si ce n'est des codes d'erreur Http lors d'un échec notamment 403 (Forbidden) ou 500 (Internal Server Error).
+
+\begin{codesnippet}[htb]
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/reject_in.js}
+\caption{reject in}
+\label{snip:reject_in}
+\end{codesnippet}
+
+
+\subsubsection{raz}
+\shadowbox{\verb|/parapheur/api/razDossier|
+}\\
+
+Remise à zéro d'un dossier rejeté.
+Ne retourne rien si ce n'est des codes d'erreur Http lors d'un échec notamment 403 (Forbidden) ou 500 (Internal Server Error).
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/razDossier_in.js}
+\caption{razDossier in}
+\label{snip:razDossier_in}
+\end{codesnippet}
+
+
+\subsubsection{remorse}
+\shadowbox{\verb|/parapheur/api/remorseDossier|
+}\\
+
+Récupération d'un dossier émis.
+Ne retourne rien si ce n'est des codes d'erreur Http lors d'un échec notamment 403 (Forbidden) ou 500 (Internal Server Error).
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/remorseDossier_in.js}
+\caption{remorseDossier in}
+\label{snip:remorseDossier_in}
+\end{codesnippet}
+
+\subsection{Création}
+
+\subsubsection{beginCreateDossier}
+\shadowbox{\verb|/parapheur/api/createDossier|
+}\\
+
+Crée un dossier vide avec un nom temporaire sous la forme \verb|Sans Titre| suivi du premier chiffre disponible.
 
 \begin{codesnippet}
 \inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/createDossier_in.js}
@@ -18,9 +149,11 @@ Crée un dossier vide avec un nom temporaire sous forme d'uuid
 \end{codesnippet}
 
 
-\subsection{setCircuit}
+\subsubsection{setCircuit}
 \shadowbox{\verb|/parapheur/api/setCircuit|
 }\\
+
+Défini un circuit pour le dossier donné.
 
 \begin{codesnippet}
 \inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/setCircuit_in.js}
@@ -28,59 +161,62 @@ Crée un dossier vide avec un nom temporaire sous forme d'uuid
 \label{snip:setCircuit_in}
 \end{codesnippet}
 
-\begin{codesnippet}
-\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/setCircuit_out.js}
-\caption{setCircuit requête sortante}
-\label{snip:setCircuit_out}
-\end{codesnippet}
 
 
-
-\subsection{setDossierProperties}
+\subsubsection{setDossierProperties}
 \shadowbox{\verb|/parapheur/api/setDossierProperties|
 }\\
 
+Enregistre les propriétés sur le dossier donné.
+
 \begin{codesnippet}
 \inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/setDossierProperties_in.js}
-\caption{setCircuit requête entrante}
+\caption{setDossierProperties requête entrante}
 \label{snip:setDossierProperties_in}
 \end{codesnippet}
 
-\begin{codesnippet}
-\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/setDossierProperties_out.js}
-\caption{setCircuit requête sortante}
-\label{snip:setDossierProperties_out}
-\end{codesnippet}
 
-\subsection{addDocument}
+\subsubsection{addDocument}
 \shadowbox{\verb|/parapheur/api/addDocument|
 }\\
 
-\begin{codesnippet}
-\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/addDocument_in.js}
-\caption{addDocument requête entrante}
-\label{snip:addDocument_in}
-\end{codesnippet}
+Ajoute un document au dossier donné. Retourne \verb|success| suivi de la référence du document créé (voir extrait~\ref{snip:addDocument_visuel_in}). En cas d'erreur, retourne \verb|error| suivi du type d'erreur rencontré.
 
 \begin{codesnippet}
-\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/addDocument_out.js}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/addDocument_visuel_out.js}
 \caption{addDocument requête sortante}
-\label{snip:addDocument_out}
+\label{snip:addDocument_visuel_out}
 \end{codesnippet}
 
 
+\subsubsection{removeDocument}
+\shadowbox{\verb|/parapheur/api/removeDocument|
+}\\
 
-\subsection{finalizeCreateDossier}
+Supprime un document. Retourne le résultat de l'opération.
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/removeDocument_in.js}
+\caption{removeDocument requête entrante}
+\label{snip:removeDocument_in}
+\end{codesnippet}
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/removeDocument_out.js}
+\caption{removeDocument requête sortante}
+\label{snip:removeDocument_out}
+\end{codesnippet}
+
+
+\subsubsection{finalizeCreateDossier}
 \shadowbox{\verb|/parapheur/api/finalizeCreateDossier|
 }\\
 
+Permet d'autoriser ou de refuser l'émission du dossier donné.
 
-var nodes = search.luceneSearch('@name:"fred1"');
-for each(var node in nodes) {
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/finalizeCreateDossier_in.js}
+\caption{finalizeCreateDossier requête entrante}
+\label{snip:finalizeCreateDossier_in}
+\end{codesnippet}
 
-    var etape = iparapheur.getCurrentEtapeCircuit(node.nodeRef);
-    logger.log(etape.getParapheurName());
-  
-}
-
-logger.log('ok');

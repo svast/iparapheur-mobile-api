@@ -1,3 +1,5 @@
 {
-    "dossierRef": "workspace://SpacesStore/023f3801-2191-4efc-86a0-61cc812d056f"
+    "type": "Finances", 
+    "bureauCourant": "workspace://SpacesStore/e6ed5c4f-3896-4067-a730-544911aca61b", 
+    "sousType": "D\u00e9penses"
 }

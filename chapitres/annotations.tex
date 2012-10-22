@@ -4,14 +4,29 @@
 \shadowbox{\verb|/parapheur/api/addAnnotation|
 }\\
 
+Ajoute une annotation au dossier donné. Cette annotation est attaché à la \verb|page| du dossier. Permet l'enregistrement multiple (voir extrait~\ref{snip:addAnnotation_in})
+Retourne la liste des uuid des annotations enregistrées.
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/addAnnotation_out.js}
+\caption{addAnnotation requête sortante}
+\label{snip:addAnnotation_out}
+\end{codesnippet}
+
 \subsection{updateAnnotation}
 \shadowbox{\verb|/parapheur/api/updateAnnotation|
 }\\
 
-\subsection{removeAnnotation}
-\shadowbox{\verb|/parapheur/api/removeAnnotation|
-}\\
+Met à jour l'annotation avec l'uuid donné (voir extrait~\ref{snip:updateAnnotation_in})
 
 \subsection{getAnnotations}
 \shadowbox{\verb|/parapheur/api/getAnnotations|
 }\\
+
+Permet de récupérer les annotations du dossier donné. Retourne la liste des annotations par page (voir extrait~\ref{snip:getAnnotation_out}).
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/getAnnotations_in.js}
+\caption{getAnnotations requête entrante}
+\label{snip:getAnnotations_in}
+\end{codesnippet}

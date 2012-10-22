@@ -1,6 +1,6 @@
 {
-    "type": "DSI Achat", 
-    "dossierRef": "workspace://SpacesStore/d3ffdc32-8373-4e72-8a68-f66597f3f75e", 
-    "sousType": "Service fait"
+    "dossier": "workspace://SpacesStore/b2a97211-39e6-4e1a-a275-386179f1a607", 
+    "type": "Finances", 
+    "bureauCourant": "workspace://SpacesStore/e6ed5c4f-3896-4067-a730-544911aca61b", 
+    "sousType": "D\u00e9penses"
 }
-

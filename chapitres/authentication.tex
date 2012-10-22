@@ -1,0 +1,38 @@
+\section{Authentification}
+
+\subsection{login}
+\shadowbox{
+\verb|/parapheur/api/login|
+}\\
+
+Cet appel ne nécessite aucune authentification (c'est d'ailleurs le seul). Une fois le ticket extrait du retour il doit être passé dans la query String\footnote{Par exemple: alf\_ticket=TICKET\_6a04816348fe8d9aab05ec7a43cfed22bdcdedd2} pour toutes les autres requêtes.
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/login_in.js}
+\caption{Login requête entrante}
+\label{snip:login_in}
+\end{codesnippet}
+
+
+\subsection{logout}
+\shadowbox{
+\verb|/parapheur/api/logout|
+}\\
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/logout_in.js}
+\caption{Logout requête entrante}
+\label{snip:logout_in}
+\end{codesnippet}
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/logout_out.js}
+\caption{Logout retour}
+\label{snip:logout_out}
+\end{codesnippet}
+
+
+\subsection{Validation du ticket d'authentification}
+\shadowbox{
+\verb|/api/login/{ticket}|
+}\\

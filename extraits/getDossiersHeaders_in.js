@@ -1,5 +1,6 @@
 {
-    "bureauRef": "workspace://SpacesStore/a379b8dc-7eca-42c8-961a-826979255eba", 
-    "page": 0, 
-    "pageSize": 5
+    "parent": "en-preparation", 
+    "bureauCourant": "workspace://SpacesStore/e6ed5c4f-3896-4067-a730-544911aca61b", 
+    "pageSize": "10", 
+    "page": "0"
 }

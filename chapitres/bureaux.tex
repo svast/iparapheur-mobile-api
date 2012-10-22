@@ -1,0 +1,164 @@
+\section{Bureaux}
+
+\subsection{getBureaux}
+\shadowbox{
+\verb|/parapheur/api/getBureaux|
+}\\
+
+Retourne la liste des bureaux dont l'utilisateur passé en paramètre est propriétaire ainsi que le nombre de dossier(s) dans présent(s) dans chaque corbeille (voir extrait~\ref{snip:getBureaux_out}) 
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/getBureaux_in.js}
+\caption{getBureaux requête entrante}
+\label{snip:getBureaux_in}
+\end{codesnippet}
+
+\subsection{getDossiersHeaders}
+\shadowbox{
+\verb|/parapheur/api/getDossiersHeaders|
+}\\
+
+\subsubsection{Entêtes de dossiers paginées}
+
+Retourne une liste d'entêtes de dossiers issus de la bannette ``a-traiter''. (voir extraits~\ref{snip:getDossiersHeaders_in} et~\ref{snip:getDossiersHeaders_out}).
+
+Lorsque l'on limite le nombre ($n$) de résultats \verb|getDossiersHeaders| retourne au plus $n + 1$ résultats afin d'indiquer une page suivante potentielle. Si \verb|pageSize| vaut 0 alors tout les résultats sont retournés.
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/getDossiersHeaders_in.js}
+\caption{getDossiersHeaders requête entrante}
+\label{snip:getDossiersHeaders_in}
+\end{codesnippet}
+
+\subsubsection{Filtres}
+Dans la requête des filtres il est possible d'utiliser les variables suivantes~\ref{table:filterable_fields} le type de la donnée est donné à titre indicatif car représenté sous forme de \verb|STRING| dans l'élément filtres de la requête.
+
+
+\begin{figure}[H]
+	\begin{center}
+\begin{tabular}{c|c|c}
+	\hline
+	Nom & Type & Examples de valeurs \\
+	\hline
+	cm:name & STRING & re7 07\\
+	ph:recuperable & BOOLEAN & false \\
+	ph:reading-mandatory & BOOLEAN & false\\
+	ph:signature-papier & BOOLEAN & false\\
+	ph:tdtProtocole & STRING  & ACTES\\
+	ph:dateLimite & DATE & null\\
+	ph:soustypeMetier & STRING & Arrete du personel \\
+	ph:confidentiel & BOOLEAN & false \\
+	ph:termine & BOOLEAN & false \\
+	ph:tdtNom & STRING & $S^2LOW$ \\
+	ph:typeSignature & STRING & CMS\\
+	ph:digital-signature-mandatory & BOOLEAN & false \\
+	ph:sigFormat & STRING & PKCS$\sharp$7/single \\
+	cm:modified & DATE & 2012-21-05 \\
+	ph:typeMetier & STRING & Actes \\
+	cm:created & DATE & 2012-17-01
+	
+\end{tabular}
+\end{center}
+\caption{Filtres potentiels}
+\label{table:filterable_fields}
+
+\end{figure}
+
+Par exemple si l'on veut tout les dossiers commençant par ``Test''\footnote{On notera l'utilisation du caractère joker *} et ayant pour type ``HELIOS'' et sousType ``depense''
+\begin{codesnippet}
+\begin{minted}[frame=single,linenos,fontsize=\footnotesize]{javascript}
+	"filtres": {
+		"cm:name" : "Test*",
+		"ph:typeMetier" : "HELIOS",
+		"ph:soustypeMetier" : "depense"
+	}
+\end{minted}
+\caption{Exemple de filtre à prédicats multiples}
+\end{codesnippet}
+
+
+\subsubsection{Filtres sur les champs de type date}
+
+Les champs de type date peuvent être filtrés à l'aide d'un intervalle de date\footnote{Il est fort probable que cela fonctionne avec d'autres types énumérés par exemple les entiers}.
+
+\begin{codesnippet}
+\begin{minted}[frame=single,linenos,fontsize=\footnotesize]{javascript}
+	"filtres": {
+		"cm:created" : "[2012-06-01 TO NOW]",
+	}
+	
+	"filtres": {
+		"cm:created" : "[NOW TO 2012-06-01]",
+	}
+	
+	"filtres": {
+		"cm:created" : "[2012-06-01 TO 2012-06-06]",
+	}
+\end{minted}
+\caption{Exemple de filtre sur des champs de type date}
+\end{codesnippet}
+
+\subsubsection{Filtres Complexes}
+Il est possible de faire des filtres complexes contenant des clauses ``OR'' et ``AND''.
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/getDossiersHeaders_search_complex_in.js}
+\caption{getDossiersHeaders Complex filters}
+\label{snip:getTypologie_in}
+\end{codesnippet}
+
+\subsubsection{Spécification du Parent virtuel}
+
+Par défaut les filtres retournent des résultats sur les dossiers provenant de la corbeille ``a-traiter''. Il est désormais possible de
+choisir la corbeille (y compris virtuelle). Le tableau suivant~\ref{table:parent_values} récapitule les différentes corbeilles possibles.
+
+\begin{figure}
+\begin{center}
+\begin{tabular}{c|p{7cm}}
+	\hline
+	Corbeille & Déscription \\
+	\hline
+        \verb|en-preparation| & contient les dossiers qui n'ont pas été encore émis  \\
+        \verb|a-traiter| & contient les dossier que l'utilisateur doit traiter (signer, viser, etc ...) \\
+        \verb|a-archiver| & contient les dossiers qui sont en fin de circuit ou à une étape d'archivage \\
+        \verb|retournes| & contient les dossiers rejetés \\
+        \verb|en-cours| & contient les dossiers emis par le proprietaire du bureau et qui suivent un circuit \\
+        \verb|a-venir| & contient les dossiers qui vont arriver dans le bureau \\
+        \verb|recuperables| & contient les dossiers récupérables (ie que l'on vient de viser) \\
+        \verb|secretariat| & contient les dossiers envoyés au secretariat \\
+        \verb|en-retard| & contient les dossiers dont la date limite < date du jour (valable uniquement pour le bureau emetteur) \\
+        \verb|a-imprimer| & contient les dossiers à imprimer par la secretaire
+
+
+\end{tabular}
+\end{center}
+\caption{Description des valeurs possibles de PARENT}
+\label{table:parent_values}
+\end{figure}
+
+
+\subsection{getCircuit}
+\shadowbox{\verb|/parapheur/api/getCircuit|
+}\\
+
+
+Retourne le circuit associé au dossierRef passé en paramètre (voir extrait ~\ref{snip:getCircuit_out}) 
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/getCircuit_in.js}
+\caption{getCircuit in}
+\label{snip:getCircuit_in}
+\end{codesnippet}
+
+
+\subsection{getTypologie}
+\shadowbox{\verb|/parapheur/api/getTypologie|
+}\\
+
+Retourne la typologie accessible au bureau passé en paramètre (voir extrait~\ref{snip:getTypologie_out}).
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/getTypologie_in.js}
+\caption{getTypologie in}
+\label{snip:getTypologie_in}
+\end{codesnippet}
