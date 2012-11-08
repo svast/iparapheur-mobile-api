@@ -3,14 +3,15 @@
     "nomTdt": "S\u00b2LOW", 
     "signatureNumeriqueObligatoire": true, 
     "sousType": "D\u00e9penses", 
-    "dossierRef": "workspace://SpacesStore/b2a97211-39e6-4e1a-a275-386179f1a607", 
-    "dateCreation": "2012-10-15T14:41:19.395+02:00", 
+    "dossierRef": "workspace://SpacesStore/0cdb212c-0eec-42bb-a93a-083781db2927", 
+    "dateCreation": "2012-11-08T11:11:55.905+01:00", 
     "actions": {
         "edit": true, 
         "sign": true, 
         "remorse": false, 
         "reject": false, 
         "raz": false, 
+        "archive": false, 
         "delete": true
     }, 
     "metadonnees": {
@@ -25,24 +26,26 @@
     }, 
     "statutMetier": "NonLu", 
     "titre": "Test EPA Mobile API", 
+    "actionDemandee": "VISA", 
     "protocoleTdt": "HELIOS", 
     "type": "Finances", 
     "documents": [
         {
             "name": "min.xml", 
-            "downloadUrl": "/api/node/workspace/SpacesStore/d443e2e5-cbeb-4e70-b27f-f75a79352feb/con
+            "canDelete": true, 
+            "downloadUrl": "/api/node/workspace/SpacesStore/7ea49352-578c-4a85-b9a7-29e29f386382/con
 tent", 
-            "visuelPdfUrl": "/api/node/workspace/SpacesStore/d443e2e5-cbeb-4e70-b27f-f75a79352feb/co
+            "visuelPdfUrl": "/api/node/workspace/SpacesStore/7ea49352-578c-4a85-b9a7-29e29f386382/co
 ntent%3bph%3avisuel-pdf", 
             "images": [
                 {
-                    "image": "/api/node/workspace/SpacesStore/0dec0df8-5143-4094-a854-87a6a31377b5/c
+                    "image": "/api/node/workspace/SpacesStore/9541fcca-68c8-46dc-9802-cdbc0f932b49/c
 ontent"
                 }
             ], 
-            "nodeRef": "workspace://SpacesStore/d443e2e5-cbeb-4e70-b27f-f75a79352feb", 
+            "nodeRef": "workspace://SpacesStore/7ea49352-578c-4a85-b9a7-29e29f386382", 
             "size": 64
         }
     ], 
-    "actionDemandee": "VISA"
+    "canAdd": true
 }

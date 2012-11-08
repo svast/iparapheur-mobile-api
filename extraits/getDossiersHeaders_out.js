@@ -3,8 +3,8 @@
     "page": "0", 
     "dossiers": [
         {
-            "dateCreation": "2012-10-15T14:41:19.395+02:00", 
-            "dossierRef": "workspace://SpacesStore/b2a97211-39e6-4e1a-a275-386179f1a607", 
+            "dateCreation": "2012-11-08T11:11:55.905+01:00", 
+            "dossierRef": "workspace://SpacesStore/0cdb212c-0eec-42bb-a93a-083781db2927", 
             "sousType": "D\u00e9penses", 
             "corbeilleParent": "Dossiers \u00e0 transmettre", 
             "actions": {
@@ -13,11 +13,12 @@
                 "remorse": false, 
                 "reject": false, 
                 "raz": false, 
+                "archive": false, 
                 "delete": true
             }, 
             "titre": "Test EPA Mobile API", 
             "type": "Finances", 
-            "bureauCourant": "Directeur G\u00e9n\u00e9ral des Finances", 
+            "bureauCourant": "Pr\u00e9sident du Conseil G\u00e9n\u00e9ral", 
             "actionDemandee": "VISA"
         }
     ]

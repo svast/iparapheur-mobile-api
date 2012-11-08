@@ -1,3 +1,3 @@
 {
-    "success": "workspace://SpacesStore/d443e2e5-cbeb-4e70-b27f-f75a79352feb"
+    "success": "workspace://SpacesStore/7ea49352-578c-4a85-b9a7-29e29f386382"
 }

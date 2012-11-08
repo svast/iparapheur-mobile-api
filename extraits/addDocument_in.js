@@ -1,6 +1,6 @@
 {
     "name": "minimal.pdf", 
-    "dossier": "workspace://SpacesStore/b2a97211-39e6-4e1a-a275-386179f1a607", 
+    "dossier": "workspace://SpacesStore/0cdb212c-0eec-42bb-a93a-083781db2927", 
     "visualcontent": "", 
     "content": "JVBERi0xLjEKJcOtw6zCpiIKCjEgMCBvYmoKICA8PCAvVHlwZSAvQ2F0YWxvZwogICAgIC9QYWdlcyAyIDAg
 UgogID4+CmVuZG9iagoKMiAwIG9iagogIDw8IC9UeXBlIC9QYWdlcwogICAgIC9LaWRzIFszIDAgUl0KICAgICAvQ291bnQgMQog
@@ -14,5 +14,5 @@ bmRzdHJlYW0gXQogID4+CmVuZG9iagoKeHJlZgowIDQKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAw
 MDAwMDAwNzggMDAwMDAgbiAKMDAwMDAwMDE3OSAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAgICAgIC9TaXpl
 IDQKICA+PgpzdGFydHhyZWYKNjEyCiUlRU9GCg==", 
     "visualname": "", 
-    "bureauCourant": "workspace://SpacesStore/e6ed5c4f-3896-4067-a730-544911aca61b"
+    "bureauCourant": "workspace://SpacesStore/3430a510-51dc-4b7a-bf6c-2c48ce443769"
 }

@@ -1,3 +1,3 @@
 {
-    "dossierRef": "workspace://SpacesStore/b2a97211-39e6-4e1a-a275-386179f1a607"
+    "dossierRef": "workspace://SpacesStore/0cdb212c-0eec-42bb-a93a-083781db2927"
 }

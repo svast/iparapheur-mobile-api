@@ -3,11 +3,11 @@
         {
             "images": [
                 {
-                    "image": "/api/node/workspace/SpacesStore/0dec0df8-5143-4094-a854-87a6a31377b5/c
+                    "image": "/api/node/workspace/SpacesStore/9541fcca-68c8-46dc-9802-cdbc0f932b49/c
 ontent"
                 }
             ], 
-            "nodeRef": "workspace://SpacesStore/d443e2e5-cbeb-4e70-b27f-f75a79352feb", 
+            "nodeRef": "workspace://SpacesStore/7ea49352-578c-4a85-b9a7-29e29f386382", 
             "name": "min.xml"
         }
     ]

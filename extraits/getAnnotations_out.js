@@ -3,10 +3,10 @@
         {
             "0": [
                 {
-                    "uuid": "1579cc5c-54da-40b1-b1cf-c71ae2e6f8d1", 
+                    "uuid": "5bde33d8-b363-40fb-bdbe-a86a6444c7ec", 
                     "author": "eperalta", 
                     "text": "coucou", 
-                    "date": "2012-10-15T14:41:25.048+02:00", 
+                    "date": "2012-11-08T11:12:02.037+01:00", 
                     "type": "text", 
                     "rect": {
                         "topLeft": {

@@ -1,6 +1,6 @@
 {
     "name": "min.xml", 
-    "dossier": "workspace://SpacesStore/b2a97211-39e6-4e1a-a275-386179f1a607", 
+    "dossier": "workspace://SpacesStore/0cdb212c-0eec-42bb-a93a-083781db2927", 
     "visualcontent": "JVBERi0xLjEKJcOtw6zCpiIKCjEgMCBvYmoKICA8PCAvVHlwZSAvQ2F0YWxvZwogICAgIC9QYWdlcy
 AyIDAgUgogID4+CmVuZG9iagoKMiAwIG9iagogIDw8IC9UeXBlIC9QYWdlcwogICAgIC9LaWRzIFszIDAgUl0KICAgICAvQ291bn
 QgMQogICAgIC9NZWRpYUJveCBbMCAwIDMwMCAxNDRdCiAgPj4KZW5kb2JqCgozIDAgb2JqCiAgPDwgIC9UeXBlIC9QYWdlCiAgIC
@@ -15,5 +15,5 @@ AgICBlbmRzdHJlYW0gXQogID4+CmVuZG9iagoKeHJlZgowIDQKMDAwMDAwMDAwMCA2NTUzNSBmIAowMD
     "content": "IDw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9IklTTy04ODU5LTEiPz4KPHJhY2luZT4KPC9yYWNpbmU+
 Cg==", 
     "visualname": "minimal.pdf", 
-    "bureauCourant": "workspace://SpacesStore/e6ed5c4f-3896-4067-a730-544911aca61b"
+    "bureauCourant": "workspace://SpacesStore/3430a510-51dc-4b7a-bf6c-2c48ce443769"
 }

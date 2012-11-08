@@ -73,12 +73,31 @@ Supprime les noeuds, fournis sous forme de liste.
 
 \subsection{Actions}
 
+Toutes les actions retournent des codes d'erreur en cas d'échec. Le \verb|nom| du dossier suivi de \verb|success| en cas de réussite, ou d'un code d'erreur en cas d'échec.
+Toutes les fonctions suivantes peuvent renvoyer l'erreur \verb|app.ajax.msg.autorisation| si l'utilisateur n'a pas l'autorisation de faire cette action.
+
 \subsubsection{visa}
 \shadowbox{\verb|/parapheur/api/visa|
 }\\
 
-Permet de viser un dossier.
-Ne retourne rien si ce n'est des codes d'erreur Http lors d'un échec notamment 403 (Forbidden) ou 500 (Internal Server Error).
+Permet de viser/émettre un dossier. Voir ~\ref{table:possible_error} pour les codes d'erreurs retournés.
+
+\begin{figure}
+	\begin{center}
+        \begin{tabular}{c|c|c}
+	        \hline
+	        Message retourné & Erreur \\
+	        \hline
+	        app.ajax.msg.nameerror & Un dossier du même nom existe déjà \\
+	        app.ajax.msg.circuit & Le circuit n'est pas défini\\
+	        app.ajax.msg.metadata & Toutes les métadonnées obligatoire ne sont pas renseignées\\
+	        app.ajax.msg.type & Type/Sous-Type non défini(s)\\
+	        app.ajax.msg.document & Aucun document n'est défini pour ce dossier\\
+        \end{tabular}
+    \end{center}
+    \caption{Erreurs possibles}
+    \label{table:possible_error}
+\end{figure}
 
 \begin{codesnippet}
 \inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/visa_in.js}
@@ -92,9 +111,8 @@ Ne retourne rien si ce n'est des codes d'erreur Http lors d'un échec notamment 
 }\\
 
 Rejet d'un dossier.
-Ne retourne rien si ce n'est des codes d'erreur Http lors d'un échec notamment 403 (Forbidden) ou 500 (Internal Server Error).
 
-\begin{codesnippet}[htb]
+\begin{codesnippet}
 \inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/reject_in.js}
 \caption{reject in}
 \label{snip:reject_in}
@@ -106,7 +124,6 @@ Ne retourne rien si ce n'est des codes d'erreur Http lors d'un échec notamment 
 }\\
 
 Remise à zéro d'un dossier rejeté.
-Ne retourne rien si ce n'est des codes d'erreur Http lors d'un échec notamment 403 (Forbidden) ou 500 (Internal Server Error).
 
 \begin{codesnippet}
 \inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/razDossier_in.js}
@@ -120,12 +137,23 @@ Ne retourne rien si ce n'est des codes d'erreur Http lors d'un échec notamment 
 }\\
 
 Récupération d'un dossier émis.
-Ne retourne rien si ce n'est des codes d'erreur Http lors d'un échec notamment 403 (Forbidden) ou 500 (Internal Server Error).
 
 \begin{codesnippet}
 \inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/remorseDossier_in.js}
 \caption{remorseDossier in}
 \label{snip:remorseDossier_in}
+\end{codesnippet}
+
+\subsubsection{archive}
+\shadowbox{\verb|/parapheur/api/archive|
+}\\
+
+Archivage d'un dossier terminé.
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/archiveDossier_in.js}
+\caption{archiveDossier in}
+\label{snip:archiveDossier_in}
 \end{codesnippet}
 
 \subsection{Création}
@@ -219,4 +247,31 @@ Permet d'autoriser ou de refuser l'émission du dossier donné.
 \caption{finalizeCreateDossier requête entrante}
 \label{snip:finalizeCreateDossier_in}
 \end{codesnippet}
+
+\subsection{Archives}
+
+\subsubsection{getArchives}
+\shadowbox{\verb|/parapheur/api/getArchives|
+}\\
+
+Retourne une liste d'entêtes d'archives. (voir extraits~\ref{snip:getArchives_in} et~\ref{snip:getArchives_out}).
+
+Lorsque l'on limite le nombre ($n$) de résultats \verb|getArchives| retourne au plus $n + 1$ résultats afin d'indiquer une page suivante potentielle. Si \verb|pageSize| vaut 0 alors tout les résultats sont retournés. Voir ~\ref{Filtres} pour les filtres, le fonctionnement général étant le même.
+
+\begin{codesnippet}
+\inputminted[frame=single,linenos,fontsize=\footnotesize]{javascript}{extraits/getArchives_in.js}
+\caption{getArchives requête entrante}
+\label{snip:getArchives_in}
+\end{codesnippet}
+
+\subsubsection{getProp}
+\shadowbox{\verb|/parapheur/api/getProp|
+}\\
+
+Permet de télécharger la propriété de type content donnée.\\
+Attention : Cette fonction s'appelle en \verb|GET|.\\
+
+Exemple d'utilisation :\\
+Récupération du document original d'une archive :\\
+\verb|parapheur/api/getProp?dossier=workspace://SpacesStore/47d8ab48-3704-41b3-aed7-4ee1ee0a6119&property=ph:original|
 

@@ -1,3 +1,3 @@
 {
-    "bureauRef": "workspace://SpacesStore/e6ed5c4f-3896-4067-a730-544911aca61b"
+    "bureauRef": "workspace://SpacesStore/3430a510-51dc-4b7a-bf6c-2c48ce443769"
 }

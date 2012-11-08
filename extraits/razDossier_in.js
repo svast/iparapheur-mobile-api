@@ -1,6 +1,6 @@
 {
-    "bureauCourant": "workspace://SpacesStore/e6ed5c4f-3896-4067-a730-544911aca61b", 
+    "bureauCourant": "workspace://SpacesStore/3430a510-51dc-4b7a-bf6c-2c48ce443769", 
     "dossiers": [
-        "workspace://SpacesStore/b2a97211-39e6-4e1a-a275-386179f1a607"
+        "workspace://SpacesStore/0cdb212c-0eec-42bb-a93a-083781db2927"
     ]
 }
